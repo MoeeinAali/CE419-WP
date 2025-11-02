@@ -1,0 +1,26 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.debug {
+    border: 1px solid red !important;
+}
+
+
+.box {
+    aspect-ratio: 1/1;
+    width: 100px;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
