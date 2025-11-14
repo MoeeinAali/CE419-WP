@@ -2,8 +2,6 @@
 const QuickAccess = {
     defaultLinks: [
         { title: 'گیت‌هاب', url: 'https://github.com' },
-        { title: 'استک‌اورفلو', url: 'https://stackoverflow.com' },
-        { title: 'جمنای', url: 'https://gemini.google.com/app' },
         { title: 'کوئرا', url: 'https://quera.ir' },
         { title: 'بایت', url: 'https://byte-mag.ir' },
     ],
@@ -66,7 +64,7 @@ const QuickAccess = {
 
         const faviconUrl = this.getFaviconUrl(link.url);
         linkDiv.innerHTML = `
-            <img src="${faviconUrl}" alt="${this.escapeHtml(link.title)}" class="favicon-icon" onerror="this.src='assets/default-favicon.svg'">
+            <img src="${faviconUrl}" alt="${this.escapeHtml(link.title)}" class="favicon-icon">
             <span class="title">${this.escapeHtml(link.title)}</span>
             <button class="remove-btn" data-index="${index}">×</button>
         `;
