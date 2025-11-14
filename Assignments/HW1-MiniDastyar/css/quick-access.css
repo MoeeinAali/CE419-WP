@@ -1,0 +1,114 @@
+/* Quick Access Section */
+.quick-access-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.quick-access-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    min-height: 120px;
+    box-shadow: var(--shadow);
+}
+
+.quick-access-item:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-lg), var(--neon-primary);
+    color: #ffffff;
+}
+
+.quick-access-item .favicon-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.quick-access-item .title {
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.quick-access-item .remove-btn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.quick-access-item:hover .remove-btn {
+    opacity: 1;
+}
+
+.quick-access-item .remove-btn:hover {
+    background-color: var(--danger-color);
+}
+
+.btn-add {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px dashed var(--primary-color);
+    background: rgba(99, 102, 241, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--primary-light);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.btn-add:hover {
+    background: rgba(99, 102, 241, 0.3);
+    color: var(--primary-light);
+    border: 2px solid var(--primary-light);
+    box-shadow: var(--neon-primary);
+}
+

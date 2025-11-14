@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دستیار - صفحه اصلی</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>مینی‌دستیار</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <h1 class="logo">مینی‌دستیــــــــــــــــــــــار</h1>
@@ -18,8 +17,11 @@
                     <span class="header-credit-label">طراحی و توسعه:</span>
                     <a href="https://github.com/moeeinaali" target="_blank" class="header-credit-link">
                         <span class="header-credit-text">معین آعلی</span>
-                        <svg class="header-credit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        <svg class="header-credit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
                         </svg>
                     </a>
                 </div>
@@ -27,10 +29,8 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main">
         <div class="container">
-            <!-- Search Bar Section -->
             <section class="search-section">
                 <div class="search-container">
                     <input type="text" id="searchInput" class="search-input" placeholder="جستجو در گوگل...">
@@ -38,7 +38,6 @@
                 </div>
             </section>
 
-            <!-- Quick Access Section -->
             <section class="quick-access-section">
                 <div class="section-header">
                     <h2>دسترسی سریع</h2>
@@ -47,13 +46,10 @@
                     </button>
                 </div>
                 <div id="quickAccessGrid" class="quick-access-grid">
-                    <!-- Quick access tiles will be added here dynamically -->
                 </div>
             </section>
 
-            <!-- Calendar and Notes Container -->
             <div class="content-wrapper">
-                <!-- Calendar Section -->
                 <section class="calendar-section">
                     <div class="calendar-header">
                         <button id="prevMonthBtn" class="calendar-nav-btn">‹</button>
@@ -73,17 +69,14 @@
                     </div>
 
                     <div id="calendarGrid" class="calendar-grid">
-                        <!-- Calendar days will be added here dynamically -->
                     </div>
                 </section>
 
-                <!-- Notes Section -->
                 <section class="notes-section">
                     <div class="section-header">
                         <h2>یادداشت‌ها</h2>
                     </div>
 
-                    <!-- Add Note Form -->
                     <div class="add-note-form">
                         <input type="text" id="noteTitleInput" class="note-input" placeholder="عنوان یادداشت...">
                         <textarea id="noteContentInput" class="note-textarea" placeholder="متن یادداشت..."
@@ -91,16 +84,13 @@
                         <button id="addNoteBtn" class="btn-primary">افزودن یادداشت</button>
                     </div>
 
-                    <!-- Notes List -->
                     <div id="notesList" class="notes-list">
-                        <!-- Notes will be added here dynamically -->
                     </div>
                 </section>
             </div>
         </div>
     </main>
 
-    <!-- Date Notes Modal -->
     <div id="dateNotesModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -108,7 +98,6 @@
                 <button id="closeDateModalBtn" class="modal-close">×</button>
             </div>
             <div class="modal-body">
-                <!-- Add Note Form for Date -->
                 <div class="add-note-form">
                     <input type="text" id="dateNoteTitleInput" class="note-input" placeholder="عنوان یادداشت...">
                     <textarea id="dateNoteContentInput" class="note-textarea" placeholder="متن یادداشت..."
@@ -116,15 +105,12 @@
                     <button id="addDateNoteBtn" class="btn-primary">افزودن یادداشت</button>
                 </div>
 
-                <!-- Date Notes List -->
                 <div id="dateNotesList" class="notes-list">
-                    <!-- Date-specific notes will be added here -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Add Quick Link Modal -->
     <div id="addLinkModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -145,7 +131,14 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/quickAccess.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/dateNotes.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

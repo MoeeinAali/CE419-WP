@@ -1,0 +1,12 @@
+/* Main CSS File - Imports all modules */
+@import url('fonts.css');
+@import url('variables.css');
+@import url('base.css');
+@import url('header.css');
+@import url('search.css');
+@import url('quick-access.css');
+@import url('calendar.css');
+@import url('notes.css');
+@import url('modal.css');
+@import url('responsive.css');
+

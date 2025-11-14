@@ -1,0 +1,214 @@
+/* Notes Section */
+.notes-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.add-note-form {
+    margin-bottom: 24px;
+}
+
+.note-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
+}
+
+.note-input::placeholder {
+    color: var(--text-muted);
+}
+
+.note-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.note-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 12px;
+    resize: vertical;
+    font-family: inherit;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
+}
+
+.note-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.note-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow), var(--shadow-glow);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    border: 2px solid var(--primary-light);
+    box-shadow: var(--shadow-lg), var(--neon-primary);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary:active {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.add-note-form .btn-secondary {
+    margin-top: 8px;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.note-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 16px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.note-item:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow), var(--neon-primary);
+    color: var(--text-primary);
+}
+
+.note-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.note-item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.note-item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.note-item-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, var(--warning-color), #d97706);
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: 2px solid #f59e0b;
+    box-shadow: var(--neon-warning);
+    color: #ffffff;
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, var(--danger-color), #dc2626);
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: 2px solid #ef4444;
+    box-shadow: var(--neon-danger);
+    color: #ffffff;
+}
+
+.note-item-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+.note-item-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
