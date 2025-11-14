@@ -155,7 +155,12 @@ const Calendar = {
         const notes = AppState.dateNotes[dateKey] || [];
 
         if (notes.length === 0) {
-            notesList.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">هیچ یادداشتی برای این تاریخ وجود ندارد</p>';
+            const emptyMessage = document.createElement('p');
+            emptyMessage.style.textAlign = 'center';
+            emptyMessage.style.color = 'var(--text-secondary)';
+            emptyMessage.style.padding = '20px';
+            emptyMessage.textContent = 'هیچ یادداشتی برای این تاریخ وجود ندارد';
+            notesList.appendChild(emptyMessage);
             return;
         }
 
@@ -172,17 +177,34 @@ const Calendar = {
         const isEditing = AppState.editingDateNoteId === note.id;
 
         if (isEditing) {
-            noteDiv.innerHTML = `
-                <div class="add-note-form">
-                    <input type="text" class="note-input edit-note-title" value="${this.escapeHtml(note.title)}" placeholder="عنوان یادداشت...">
-                    <textarea class="note-textarea edit-note-content" placeholder="متن یادداشت..." rows="3">${this.escapeHtml(note.content)}</textarea>
-                    <button class="btn-primary save-date-note-btn">ذخیره</button>
-                    <button class="btn-secondary cancel-date-note-btn">انصراف</button>
-                </div>
-            `;
+            const formDiv = document.createElement('div');
+            formDiv.className = 'add-note-form';
 
-            const saveBtn = noteDiv.querySelector('.save-date-note-btn');
-            const cancelBtn = noteDiv.querySelector('.cancel-date-note-btn');
+            const titleInput = document.createElement('input');
+            titleInput.type = 'text';
+            titleInput.className = 'note-input edit-note-title';
+            titleInput.value = note.title;
+            titleInput.placeholder = 'عنوان یادداشت...';
+            formDiv.appendChild(titleInput);
+
+            const contentTextarea = document.createElement('textarea');
+            contentTextarea.className = 'note-textarea edit-note-content';
+            contentTextarea.placeholder = 'متن یادداشت...';
+            contentTextarea.rows = 3;
+            contentTextarea.value = note.content;
+            formDiv.appendChild(contentTextarea);
+
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'btn-primary save-date-note-btn';
+            saveBtn.textContent = 'ذخیره';
+            formDiv.appendChild(saveBtn);
+
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'btn-secondary cancel-date-note-btn';
+            cancelBtn.textContent = 'انصراف';
+            formDiv.appendChild(cancelBtn);
+
+            noteDiv.appendChild(formDiv);
 
             saveBtn.addEventListener('click', () => {
                 const title = noteDiv.querySelector('.edit-note-title').value.trim();
@@ -205,20 +227,39 @@ const Calendar = {
                 this.renderDateNotes();
             });
         } else {
-            noteDiv.innerHTML = `
-                <div class="note-item-header">
-                    <div class="note-item-title">${this.escapeHtml(note.title || 'بدون عنوان')}</div>
-                    <div class="note-item-actions">
-                        <button class="note-item-btn btn-edit edit-date-note-btn">ویرایش</button>
-                        <button class="note-item-btn btn-delete delete-date-note-btn">حذف</button>
-                    </div>
-                </div>
-                <div class="note-item-content">${this.escapeHtml(note.content)}</div>
-                <div class="note-item-date">تاریخ: ${this.formatDate(new Date(note.createdAt))}</div>
-            `;
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'note-item-header';
 
-            const editBtn = noteDiv.querySelector('.edit-date-note-btn');
-            const deleteBtn = noteDiv.querySelector('.delete-date-note-btn');
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'note-item-title';
+            titleDiv.textContent = note.title || 'بدون عنوان';
+            headerDiv.appendChild(titleDiv);
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'note-item-actions';
+
+            const editBtn = document.createElement('button');
+            editBtn.className = 'note-item-btn btn-edit edit-date-note-btn';
+            editBtn.textContent = 'ویرایش';
+            actionsDiv.appendChild(editBtn);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'note-item-btn btn-delete delete-date-note-btn';
+            deleteBtn.textContent = 'حذف';
+            actionsDiv.appendChild(deleteBtn);
+
+            headerDiv.appendChild(actionsDiv);
+            noteDiv.appendChild(headerDiv);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'note-item-content';
+            contentDiv.textContent = note.content;
+            noteDiv.appendChild(contentDiv);
+
+            const dateDiv = document.createElement('div');
+            dateDiv.className = 'note-item-date';
+            dateDiv.textContent = `تاریخ: ${this.formatDate(new Date(note.createdAt))}`;
+            noteDiv.appendChild(dateDiv);
 
             editBtn.addEventListener('click', () => {
                 AppState.editingDateNoteId = note.id;
@@ -242,11 +283,6 @@ const Calendar = {
         return noteDiv;
     },
 
-    escapeHtml: function (text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    },
 
     updateCalendar: function () {
         this.render();

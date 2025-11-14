@@ -3,7 +3,7 @@
   "name": "مینی‌دستیار",
   "version": "1.0.0",
   "description": "افزونه دستیار شخصی با قابلیت جستجو، دسترسی سریع، تقویم و یادداشت‌ها",
-  "author": "معین آعلی",
+  "author": "Moeein Aali",
   "homepage_url": "https://github.com/moeeinaali",
   "icons": {
     "16": "icons/icon-16.png",
@@ -27,7 +27,15 @@
   "host_permissions": [
     "https://www.google.com/*"
   ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "minidastyar@moeeinaali",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
   }
 }

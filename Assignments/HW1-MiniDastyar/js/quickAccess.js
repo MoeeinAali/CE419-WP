@@ -63,18 +63,31 @@ const QuickAccess = {
         linkDiv.className = 'quick-access-item';
 
         const faviconUrl = this.getFaviconUrl(link.url);
-        linkDiv.innerHTML = `
-            <img src="${faviconUrl}" alt="${this.escapeHtml(link.title)}" class="favicon-icon">
-            <span class="title">${this.escapeHtml(link.title)}</span>
-            <button class="remove-btn" data-index="${index}">×</button>
-        `;
+        
+        // Create image element
+        const img = document.createElement('img');
+        img.src = faviconUrl;
+        img.alt = link.title;
+        img.className = 'favicon-icon';
+        linkDiv.appendChild(img);
 
-        const removeBtn = linkDiv.querySelector('.remove-btn');
+        // Create title span
+        const titleSpan = document.createElement('span');
+        titleSpan.className = 'title';
+        titleSpan.textContent = link.title;
+        linkDiv.appendChild(titleSpan);
+
+        // Create remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-btn';
+        removeBtn.setAttribute('data-index', index);
+        removeBtn.textContent = '×';
         removeBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             this.removeLink(index);
         });
+        linkDiv.appendChild(removeBtn);
 
         return linkDiv;
     },
@@ -125,10 +138,5 @@ const QuickAccess = {
         this.closeAddLinkModal();
     },
 
-    escapeHtml: function (text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
 };
 
