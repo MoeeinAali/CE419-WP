@@ -20,7 +20,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-        # Check if obj has 'owner' or 'author' attribute
         if hasattr(obj, 'owner'):
             return obj.owner == request.user
         if hasattr(obj, 'author'):
@@ -39,9 +38,7 @@ class IsOwnerOrAssignedContractor(permissions.BasePermission):
 
 class IsSelfOrSupportOrAdmin(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        # Allow admins and support to do anything
         if request.user.role in ['admin', 'support']:
             return True
-        # Allow users to edit/delete themselves
         return obj == request.user
 

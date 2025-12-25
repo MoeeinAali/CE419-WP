@@ -20,6 +20,8 @@ def create_users():
     )
     if created:
         admin.set_password('admin123')
+        admin.is_staff = True
+        admin.is_superuser = True
         admin.save()
         print(f"Created Admin: {admin.username}")
     else:
