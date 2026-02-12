@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  caret-color: var(--color-primary);
+  accent-color: var(--color-primary);
+
+  font-family: "Vazirmatn", sans-serif;
+}
+
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+  font: inherit;
+}
+
+body {
+  background-color: var(--color-surface-1);
+  color: var(--color-text);
+
+  margin-inline: auto;
+
+  font-size: var(--fz-400);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--color-primary);
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+.debug {
+  & > * {
+    border: 1px solid red !important;
+  }
+  border: 1px solid red !important;
+}

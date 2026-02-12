@@ -1,0 +1,15 @@
+.form-modal {
+  form {
+    display: grid;
+    gap: 1rem;
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+
+      .cancel {
+        margin-inline-start: auto;
+      }
+    }
+  }
+}

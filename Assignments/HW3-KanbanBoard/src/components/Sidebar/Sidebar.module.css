@@ -1,0 +1,87 @@
+.sidebar {
+  --item-padding-inline: 1rem;
+
+  background-color: var(--color-surface-3);
+  box-shadow: var(--shadow-2);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  gap: 2rem;
+
+  inline-size: 17rem;
+
+  padding: 1rem;
+
+  .header {
+    position: relative;
+
+    .logo {
+      color: inherit;
+
+      display: block;
+
+      padding-inline: var(--item-padding-inline);
+
+      font-size: 2rem;
+
+      text-decoration: none;
+    }
+
+    .arrow {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0;
+
+      translate: 0 -50%;
+    }
+  }
+
+  nav {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+  }
+
+  .footer {
+    padding-inline: var(--item-padding-inline);
+
+    display: grid;
+    gap: 0.25rem;
+
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+
+    .copyright {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .link {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.collapsed {
+    inline-size: auto;
+
+    margin-inline-end: 1rem;
+
+    .header {
+      .arrow {
+        background-color: var(--color-surface-3);
+
+        translate: calc(2 * var(--item-padding-inline)) -50%;
+      }
+    }
+
+    .footer {
+      display: none;
+    }
+  }
+}
