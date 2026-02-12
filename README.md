@@ -1,4 +1,4 @@
-# CE{Code of Course}-{Short Name of Course}
+# CE419 - Web Programming
 Solutions to Mr. Abrishami's CE419: Web Programming Course (Sharif University of Technology - Fall 2025) Assignments
 
 ## Table of Contents
