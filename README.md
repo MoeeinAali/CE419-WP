@@ -1,5 +1,5 @@
 # CE{Code of Course}-{Short Name of Course}
-Solutions to Prof. {Name of Prof}'s CE{Code of Course}: {Full Name of Course} (Sharif University of Technology - {Semester} {Year}) Assignments
+Solutions to Mr. Abrishami's CE419: Web Programming Course (Sharif University of Technology - Fall 2025) Assignments
 
 ## Table of Contents
 
